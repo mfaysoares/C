@@ -1,3 +1,5 @@
+//C Functions of a LCD 4 Bits
+
 //LCD Functions
 void lcd_comando(int comando)
 {
