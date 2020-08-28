@@ -58,9 +58,9 @@ void Error_Handler(void);
 
 /* USER CODE BEGIN 0 */
 
-void lcd_comando (int comando)//feita pelo Benfica. fazer as demais.
+void lcd_comando (int comando)
 {
-	HAL_GPIO_WritePin(GPIOA,LCD_RS_Pin,0); //ou 1<<9 o RS_Pin já é um define criado pelo Cube.
+	HAL_GPIO_WritePin(GPIOA,LCD_RS_Pin,0); //ou 1<<9 o RS_Pin jÃ¡ Ã© um define criado pelo Cube.
 	
 	if ((comando & 0x80)== 0x80)
 		HAL_GPIO_WritePin(GPIOA,LCD_D7_Pin,1);
@@ -80,7 +80,7 @@ void lcd_comando (int comando)//feita pelo Benfica. fazer as demais.
 	if ((comando & 0x10)==0x10)
 		HAL_GPIO_WritePin(GPIOA,LCD_D4_Pin,1);
 	else
-		HAL_GPIO_WritePin(GPIOA,LCD_D4_Pin,0); // concluída primeira metade do comando. agora o enable:
+		HAL_GPIO_WritePin(GPIOA,LCD_D4_Pin,0); // concluÃ­da primeira metade do comando. agora o enable:
 	
 	HAL_GPIO_WritePin(GPIOB,LCD_EN_Pin,1);
 	HAL_Delay(1); // 1ms
@@ -115,7 +115,7 @@ void lcd_comando (int comando)//feita pelo Benfica. fazer as demais.
 }
 void lcd_dado (int dado)
 {
-		HAL_GPIO_WritePin(GPIOA,LCD_RS_Pin,1); //ou 1<<9 o RS_Pin já é um define criado pelo Cube.
+		HAL_GPIO_WritePin(GPIOA,LCD_RS_Pin,1); //ou 1<<9 o RS_Pin jÃ¡ Ã© um define criado pelo Cube.
 	
 	if ((dado & 0x80)== 0x80)
 		HAL_GPIO_WritePin(GPIOA,LCD_D7_Pin,1);
@@ -197,7 +197,7 @@ void lcd_goto (int linha, int coluna)
 //	
 //}
 
-void lcd_string (char *str)// Formato Prof. Julio
+void lcd_string (char *str)
 {
 while (*str) lcd_dado(*str ++);
 }
@@ -212,8 +212,8 @@ int main(void)
 //	uint8_t vetor_hora[30];
 //	uint8_t vetor_data[30];
 //	
-//	RTC_TimeTypeDef sTime; // estrutura que receberá a hora
-//	RTC_DateTypeDef sDate; // estrutura que receberá a data
+//	RTC_TimeTypeDef sTime; // estrutura que receberÃ¡ a hora
+//	RTC_DateTypeDef sDate; // estrutura que receberÃ¡ a data
 //	
 //	sTime.Hours = 10; //valor da hora
 //	sTime.Minutes = 54; //valor dos minutos
@@ -221,8 +221,8 @@ int main(void)
 //	
 //	HAL_RTC_SetTime(&hrtc, &sTime, FORMAT_BIN);
 //	
-//	sDate.Date = 20; //(Dia do mês de 1 a 31)
-//	sDate.Month = RTC_MONTH_SEPTEMBER; //(Mês de 1 a 12)
+//	sDate.Date = 20; //(Dia do mÃªs de 1 a 31)
+//	sDate.Month = RTC_MONTH_SEPTEMBER; //(MÃªs de 1 a 12)
 //	sDate.WeekDay = RTC_WEEKDAY_TUESDAY; //(Dia da semana de 1 a 7)
 //	sDate.Year = 16; //(Ano de 0 a 99)
 //	
